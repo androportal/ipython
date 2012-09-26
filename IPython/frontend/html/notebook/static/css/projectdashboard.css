@@ -6,9 +6,10 @@
  */
 
 #main_app {
-   /* width: 920px;*/
-    width: 800px;
-    margin: 30px auto 0px auto;
+   /* width: 920px;
+    margin: 0px auto 0px auto;*/
+    width: 480px;
+    margin: 0px auto 0px auto;
 }
 
 #tabs {
@@ -20,9 +21,12 @@
 }
 
 .list_toolbar {
-    padding: 5px;
+    /*padding: 5px;
     height: 25px;
-    line-height: 25px;
+    line-height: 25px;*/
+    padding: 5px;
+    height: 12px;
+    line-height: 12px;
 }
 
 .toolbar_info {
@@ -56,12 +60,14 @@
 
 .status_col {
     float: right;
-    width: 325px;
+    /*width: 325px;*/
+    width: 480px;
 }
 
 .engines_col {
     float: right;
-    width: 325px;
+    /*width: 325px;*/
+    width: 480px;
 }
 
 .action_col {
