@@ -5,6 +5,9 @@
 Overview
 ========
 
+This is a forked version for ``Aakash``. The device specific changes will
+be listed here soon.
+
 Welcome to IPython.  Our full documentation is available on `our website
 <http://ipython.org/documentation.html>`_; if you downloaded a built source
 distribution the ``docs/source`` directory contains the plaintext version of
