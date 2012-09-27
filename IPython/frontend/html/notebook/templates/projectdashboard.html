@@ -26,30 +26,38 @@ data-read-only={{read_only}}
     <ul>
         <li><a href="#tab1">Notebooks</a></li>
 <!--        <li><a href="#tab2">Clusters</a></li> -->
+     <span id="notebook_buttons">
+                <button id="refresh_notebook_list" title="Refresh notebook list">Refresh</button>
+                <button id="new_notebook" title="Create new notebook">New Notebook</button>
+     </span>
     </ul>
 
-    <div id="tab1">
+   <!-- <div id="tab1">
         {% if logged_in or not read_only %}
         <div id="notebook_toolbar">
             <form id='alternate_upload'  class='alternate_upload' >
                 <span id="drag_info" style="position:absolute" >
-                  <!--  To import a notebook, drag the file onto the listing below or <strong>click here</strong>.-->
+                    To import a notebook, drag the file onto the listing below or <strong>click here</strong>.
                     </span>
                 <input type="file" name="datafile" class="fileinput" multiple='multiple'>
             </form>
-            <span id="notebook_buttons">
+            
+          
+          <span id="notebook_buttons">
                 <button id="refresh_notebook_list" title="Refresh notebook list">Refresh</button>
                 <button id="new_notebook" title="Create new notebook">New Notebook</button>
             </span>
         </div>
         {% end %}
-
+       -->
         <div id="notebook_list">
-            <div id="project_name"><h2>{{project}}</h2></div>
+           <div id="project_name"></div>
         </div>
-    </div>
-    <div id="tab2">
-        <!-- 
+   
+   </div>
+ <!--
+   <div id="tab2">
+         
         <div id="cluster_toolbar">
             <span id="cluster_list_info">IPython parallel computing clusters</span> 
 
@@ -67,9 +75,10 @@ data-read-only={{read_only}}
                 <span>status</span>
             </div>
         </div>
- -->
 
     </div>
+-->
+    
 </div>
 
 </div>

@@ -7,9 +7,9 @@
 
 #main_app {
    /* width: 920px;
-    margin: 0px auto 0px auto;*/
-    width: 480px;
-    margin: 0px auto 0px auto;
+    margin: 30px auto 0px auto;*/
+    width: 470px;
+    margin: 5px auto 0px auto;
 }
 
 #tabs {
@@ -21,16 +21,14 @@
 }
 
 .list_toolbar {
-    /*padding: 5px;
-    height: 25px;
-    line-height: 25px;*/
     padding: 5px;
-    height: 12px;
-    line-height: 12px;
+    height: 25px;
+    line-height: 25px;
 }
 
 .toolbar_info {
-    float: left;
+  
+   float: left;
 }
 
 .toolbar_buttons {
@@ -38,14 +36,15 @@
 }
 
 .list_header {
-    height: 25px;
-    line-height: 25px;
+    height: 0px;
+    line-height: 2px;
     padding: 3px 5px;
 }
 
 
 
 .list_item {
+    /*the list containing notebooks*/
     height: 25px;
     line-height: 25px;
     padding: 3px 5px;
@@ -61,13 +60,13 @@
 .status_col {
     float: right;
     /*width: 325px;*/
-    width: 480px;
+    width: 470px;
 }
 
 .engines_col {
     float: right;
     /*width: 325px;*/
-    width: 480px;
+    width: 470px;
 }
 
 .action_col {
