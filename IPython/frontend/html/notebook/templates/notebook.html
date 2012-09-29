@@ -36,18 +36,20 @@ data-notebook-id={{notebook_id}}
 
 
 {% block header %}
+<!--
+Moved to toolbar 
 
 <span id="save_widget">
     <span id="notebook_name"></span>
     <span id="save_status"></span>
 </span>
-
+-->
 {% end %}
 
 
 {% block site %}
-
 <div id="menubar_container">
+<!--
 <div id="menubar">
     <ul id="menus">
         <li><a href="#">File</a>
@@ -151,12 +153,15 @@ data-notebook-id={{notebook_id}}
         </li>
     </ul>
 
+
 </div>
+
+
     <div id="notification_area">
     </div>
 </div>
 
-
+-->
 <div id="toolbar">
 
     <span>
@@ -167,19 +172,29 @@ data-notebook-id={{notebook_id}}
         <button id="copy_b" title="Copy Cell">Copy Cell</button>
         <button id="paste_b" title="Paste Cell">Paste Cell</button>
     </span>
+
     <span id="move_up_down">
         <button id="move_up_b" title="Move Cell Up">Move Cell Up</button>
         <button id="move_down_b" title="Move Cell Down">Move Down</button>
     </span>
+
     <span id="insert_above_below">
         <button id="insert_above_b" title="Insert Cell Above">Insert Cell Above</button>
         <button id="insert_below_b" title="Insert Cell Below">Insert Cell Below</button>
     </span>
+
     <span id="run_int">
         <button id="run_b" title="Run Cell">Run Cell</button>
         <button id="interrupt_b" title="Interrupt">Interrupt</button>
     </span>
-    <span>
+    
+    <span id="save_widget">
+    <span id="notebook_name"></span>
+    <span id="save_status"></span>
+    </span>
+
+   <!--
+   <span>
         <select id="cell_type">
              <option value="code">Code</option>
              <option value="markdown">Markdown</option>
@@ -192,11 +207,11 @@ data-notebook-id={{notebook_id}}
              <option value="heading6">Heading 6</option>
         </select>
     </span>
-
+    -->
 </div>
 
-<div id="main_app">
 
+<div id="main_app">
     <div id="notebook_panel">
         <div id="notebook"></div>
         <div id="pager_splitter"></div>
@@ -208,9 +223,10 @@ data-notebook-id={{notebook_id}}
     </div>
 
 </div>
+
+<!--
 <div id='tooltip' class='tooltip ui-corner-all' style='display:none'></div>
-
-
+-->
 {% end %}
 
 

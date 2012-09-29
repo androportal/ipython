@@ -533,23 +533,28 @@ class NotebookApp(BaseIPythonApplication):
         """
         # FIXME: remove this delay when pyzmq dependency is >= 2.1.11
         time.sleep(0.1)
-        sys.stdout.write("Shutdown Notebook Server (y/[n])? ")
+#        sys.stdout.write("Shutdown Notebook Server (y/[n])? ")
         sys.stdout.flush()
-        r,w,x = select.select([sys.stdin], [], [], 5)
-        if r:
-            line = sys.stdin.readline()
-            if line.lower().startswith('y'):
-                self.log.critical("Shutdown confirmed")
-                ioloop.IOLoop.instance().stop()
-                return
-        else:
-            print "No answer for 5s:",
-        print "resuming operation..."
+        self.log.critical("Shutdown confirmed")
+        ioloop.IOLoop.instance().stop()
+#
+# commented to avoid confirmation before exit
+#
+#        r,w,x = select.select([sys.stdin], [], [], 5)
+#        if r:
+#            line = sys.stdin.readline()
+#            if line.lower().startswith('y'):
+#                self.log.critical("Shutdown confirmed")
+#                ioloop.IOLoop.instance().stop()
+#                return
+#        else:
+#            print "No answer for 5s:",
+#        print "resuming operation..."
         # no answer, or answer is no:
         # set it back to original SIGINT handler
         # use IOLoop.add_callback because signal.signal must be called
         # from main thread
-        ioloop.IOLoop.instance().add_callback(self._restore_sigint_handler)
+        #ioloop.IOLoop.instance().add_callback(self._restore_sigint_handler)
     
     def _signal_stop(self, sig, frame):
         self.log.critical("received signal %s, stopping", sig)
