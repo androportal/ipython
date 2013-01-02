@@ -8,6 +8,26 @@
 {% end %}
 
 
+<div id="header">
+    <span id="ipython_notebook"><h1><a href={{base_project_url}} alt='dashboard'><img src='{{static_url("ipynblogo.png") }}' alt='IPython Notebook'/></a></h1></span>
+
+    {% block login_widget %}
+
+      <span id="login_widget">
+        {% if logged_in %}
+          <button id="logout">Logout</button>
+        {% elif login_available and not logged_in %}
+          <button id="login">Login</button>
+        {% end %}
+      </span>
+
+    {% end %}
+
+    {% block header %}
+    {% end %}
+</div>
+
+
 {% block params %}
 
 data-project={{project}}
