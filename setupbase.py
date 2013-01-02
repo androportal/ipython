@@ -383,12 +383,12 @@ def record_commit_info(pkg_dir, build_cmd=build_py):
             # this one will only fire for build commands
             if hasattr(self, 'build_lib'):
                 self._record_commit(self.build_lib)
-        
+
         def make_release_tree(self, base_dir, files):
             # this one will fire for sdist
             build_cmd.make_release_tree(self, base_dir, files)
             self._record_commit(base_dir)
-        
+
         def _record_commit(self, base_dir):
             import subprocess
             proc = subprocess.Popen('git rev-parse --short HEAD',
@@ -397,14 +397,14 @@ def record_commit_info(pkg_dir, build_cmd=build_py):
                                     shell=True)
             repo_commit, _ = proc.communicate()
             repo_commit = repo_commit.strip().decode("ascii")
-            
+
             out_pth = pjoin(base_dir, pkg_dir, 'utils', '_sysinfo.py')
             if os.path.isfile(out_pth) and not repo_commit:
                 # nothing to write, don't clobber
                 return
-            
+
             print("writing git commit '%s' to %s" % (repo_commit, out_pth))
-            
+
             # remove to avoid overwriting original via hard link
             try:
                 os.remove(out_pth)

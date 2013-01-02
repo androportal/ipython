@@ -80,7 +80,7 @@ pjoin = os.path.join
 
 def cleanup():
     """Clean up the junk left around by the build process"""
-    if "develop" not in sys.argv and "egg_info" not in sys.argv:
+    if "develop" not in sys.argv:
         try:
             shutil.rmtree('ipython.egg-info')
         except:
@@ -177,7 +177,7 @@ from distutils.command.sdist import sdist
 from distutils.command.upload import upload
 
 class UploadWindowsInstallers(upload):
-    
+
     description = "Upload Windows installers to PyPI (only used from tools/release_windows.py)"
     user_options = upload.user_options + [
         ('files=', 'f', 'exe file (or glob) to upload')
@@ -190,7 +190,7 @@ class UploadWindowsInstallers(upload):
             version=meta.get_version()
         )
         self.files = os.path.join('dist', '%s.*.exe' % base)
-    
+
     def run(self):
         for dist_file in glob(self.files):
             self.upload_file('bdist_wininst', 'any', dist_file)
@@ -230,6 +230,7 @@ if 'setuptools' in sys.modules:
     setuptools_extra_args['entry_points'] = find_scripts(True)
     setup_args['extras_require'] = dict(
         parallel = 'pyzmq>=2.1.4',
+        qtconsole = 'pygments',
         zmq = 'pyzmq>=2.1.4',
         doc = 'Sphinx>=0.3',
         test = 'nose>=0.10.1',
@@ -265,17 +266,6 @@ if 'setuptools' in sys.modules:
     
     if PY3:
         setuptools_extra_args['use_2to3'] = True
-        # we try to make a 2.6, 2.7, and 3.1 to 3.3 python compatible code
-        # so we explicitly disable some 2to3 fixes to be sure we aren't forgetting
-        # anything.
-        setuptools_extra_args['use_2to3_exclude_fixers'] = [
-                'lib2to3.fixes.fix_apply',
-                'lib2to3.fixes.fix_except',
-                'lib2to3.fixes.fix_has_key',
-                'lib2to3.fixes.fix_next',
-                'lib2to3.fixes.fix_repr',
-                'lib2to3.fixes.fix_tuple_params',
-                ]
         from setuptools.command.build_py import build_py
         setup_args['cmdclass'] = {'build_py': record_commit_info('IPython', build_cmd=build_py)}
         setuptools_extra_args['entry_points'] = find_scripts(True, suffix='3')

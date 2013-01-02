@@ -1,7 +1,7 @@
 .. _ipython_directive:
 
 ========================
-IPython Sphinx Directive
+Ipython Sphinx Directive
 ========================
 
 The ipython directive is a stateful ipython shell for embedding in
